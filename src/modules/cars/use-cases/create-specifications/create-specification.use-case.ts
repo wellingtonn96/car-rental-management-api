@@ -1,6 +1,6 @@
-import { ICreateSpecificationDTO, ISpecificationRepository } from "../repositories/ISpecificationRepository";
+import { ICreateSpecificationDTO, ISpecificationRepository } from "../../repositories/implementations/ISpecificationRepository";
 
-export class CreateSpecificationService {
+export class CreateSpecificationUseCase {
     constructor (private specificationRepository: ISpecificationRepository) {}
 
     public execute({ description, name }: ICreateSpecificationDTO) {

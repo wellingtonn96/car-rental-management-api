@@ -1,10 +1,17 @@
-# Assuntos desta Aula - 004
+# Assuntos - Aula 005
 
-- Entendendo o S.O.L.I.D - Rocketseat[3]
-- Utilizando o Princípio de Responsabilidade Única (SRP) - Rocketseat[2]
-- Utilizando o Princípio da Substituição de Liskov (LSP) - Rocketseat[2]
-- Criando service de especificação e separando em módulos - Rocketseat[2]
-- Corrigindo as importações - Rocketseat[2]
-- Criando repositório de especificação - Rocketseat[2]
-- Criando os Use Case de Categoria - Rocketseat
-- Refatorando a listagem de categoria - Rocketseat[3]
+- Conhecendo Singleton Pattern
+- Separando os repositórios
+- Criando use case de especificação
+- Refatorando as rotas
+- Conhecendo o multer
+- Criando upload de arquivos
+- Criando o use case para importar categorias
+- Conhecendo o conceito de stream
+- Lendo os dados do upload
+- Inserindo os dados do upload no repositório
+- Conhecendo o swagger
+- Configurando o swagger
+- Criando a documentação de criação de categoria
+- Criando documentação da listagem de categorias
+- Removendo os arquivos de upload

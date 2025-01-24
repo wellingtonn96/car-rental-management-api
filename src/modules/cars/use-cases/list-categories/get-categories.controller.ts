@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
-import { GetCategoriesUseCase } from "./get-categories.use-case";
+import { GetSpecificationsUseCase } from "./get-categories.use-case";
 
-export class GetCategoriesController {
-    constructor(private getCategoriesUseCase: GetCategoriesUseCase){}
+export class GetSpecificationsController {
+    constructor(private getSpecificationsUseCase: GetSpecificationsUseCase){}
     public handle(request: Request, response: Response): Response {    
         try {        
-            const categoriesList = this.getCategoriesUseCase.execute()
-            return response.status(200).json(categoriesList)
+            const specificationsList = this.getSpecificationsUseCase.execute()
+            return response.status(200).json(specificationsList)
         } catch (error) {
             return response.status(400).json({ error: error.message })
         }
