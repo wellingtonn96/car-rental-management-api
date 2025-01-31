@@ -1,8 +1,8 @@
-import { ICategoriesRepository } from "../../repositories/ICategoriesRepository";
+import { ISpecificationRepository } from "../../repositories/implementations/ISpecificationRepository";
 
-export class GetCategoriesUseCase {
-    constructor (private categoriesRepository: ICategoriesRepository) {}
+export class GetSpecificationsUseCase {
+    constructor (private specificationsRepository: ISpecificationRepository) {}
     public execute() {
-        return this.categoriesRepository.list()
+        return this.specificationsRepository.list()
     }
 }

@@ -1,9 +1,9 @@
-import { CategoriesRepository } from "../../repositories/PostgresCategoriesRepository";
-import { CreateCategoryController } from "./create-categorie.controller";
-import { CreateCategoryUseCase } from "./create-categorie.use-case";
+import { CategoriesRepository } from "../../repositories/categories.repository";
+import { CreateCategoryController } from "./create-categories.controller";
+import { CreateCategoryUseCase } from "./create-categories.use-case";
 
-const categoriesRepository = new CategoriesRepository()
+const categoriesRepository = CategoriesRepository.getInstance()
 const createCategoryUseCase = new CreateCategoryUseCase(categoriesRepository)
 const createCategoryController = new CreateCategoryController(createCategoryUseCase)
 
-export { createCategoryController }
+export { createCategoryController } 

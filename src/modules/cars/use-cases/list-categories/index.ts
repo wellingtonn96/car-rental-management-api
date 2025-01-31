@@ -1,9 +1,9 @@
-import { CategoriesRepository } from "../../repositories/PostgresCategoriesRepository"
-import { GetCategoriesController } from "./get-categories.controller"
-import { GetCategoriesUseCase } from "./get-categories.use-case"
+import { SpecificationRepository } from "../../repositories/specification.repository"
+import { GetSpecificationsController } from "./get-categories.controller"
+import { GetSpecificationsUseCase } from "./get-categories.use-case"
 
-const categoriesRepository = new CategoriesRepository()
-const getCategoryUseCase = new GetCategoriesUseCase(categoriesRepository)
-const getCategoryController = new GetCategoriesController(getCategoryUseCase)
+const specificationsRepository = SpecificationRepository.getInstance()
+const getSpecificationsUseCase = new GetSpecificationsUseCase(specificationsRepository)
+const getSpecificationsController = new GetSpecificationsController(getSpecificationsUseCase)
 
-export { getCategoryController }
+export { getSpecificationsController }
