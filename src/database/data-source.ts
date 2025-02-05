@@ -11,3 +11,12 @@ export const AppDataSource = new DataSource({
   synchronize: false, // Don't synchronize in production
   logging: true // Optional, enable logging
 });
+
+// To create migrations
+// npx typeorm migration:generate -d ./src/database/data-source.ts -n CreateCategories
+
+// To revert migrations
+//  npx typeorm migration:revert -d ./src/database/data-source.ts
+
+// To run migrations
+//  npx typeorm migration:run -d ./src/database/data-source.ts
