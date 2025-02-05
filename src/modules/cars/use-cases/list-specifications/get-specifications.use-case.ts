@@ -1,8 +1,8 @@
-import { ICategoriesRepository } from "../../repositories/implementations/ICategoriesRepository";
+import { ICategoriesRepository } from '../../repositories/implementations/ICategoriesRepository';
 
 export class GetCategoriesUseCase {
-    constructor (private categoriesRepository: ICategoriesRepository) {}
-    public execute() {
-        return this.categoriesRepository.list()
-    }
+  constructor(private categoriesRepository: ICategoriesRepository) {}
+  public execute() {
+    return this.categoriesRepository.list();
+  }
 }

@@ -1,17 +1,13 @@
-# Assuntos - Aula 005
+# Assuntos - Aula 006
 
-- Conhecendo Singleton Pattern
-- Separando os repositórios
-- Criando use case de especificação
-- Refatorando as rotas
-- Conhecendo o multer
-- Criando upload de arquivos
-- Criando o use case para importar categorias
-- Conhecendo o conceito de stream
-- Lendo os dados do upload
-- Inserindo os dados do upload no repositório
-- Conhecendo o swagger
-- Configurando o swagger
-- Criando a documentação de criação de categoria
-- Criando documentação da listagem de categorias
-- Removendo os arquivos de upload
+- Introdução
+- O que é o docker\_ - Rocketseat[2]
+- Criando nosso primeiro container e Dockerfile - Rocketseat[2]
+- Usando docker-compose - Rocketseat[3]
+- Comandos do docker - Rocketseat[3]
+- Conhecendo as formas de usar o banco de dados - Rocketseat
+- Instalando o TypeORM - Rocketseat[2]
+- Criando container do postgres - Rocketseat[2]
+- Aprendendo o conceito de migrations - Rocketseat[2]
+- Criando migration de categoria - Rocketseat[2]
+- Refatorando o model de categoria - Rocketseat
