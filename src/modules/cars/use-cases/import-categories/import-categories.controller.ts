@@ -1,13 +1,13 @@
 import { Request, Response } from 'express';
 
 import { ImportCategoriesUseCase } from './import-categories.use-case';
+import { container } from 'tsyringe';
 
 class ImportCategoriesController {
-  constructor(private importCategoriesUseCase: ImportCategoriesUseCase) {}
-
-  public handler(request: Request, response: Response) {
+  public async handler(request: Request, response: Response) {
     const { file } = request;
-    this.importCategoriesUseCase.execute(file);
+    const importCategories = container.resolve(ImportCategoriesUseCase);
+    await importCategories.execute(file as Express.Multer.File);
     return response.status(200).json(file);
   }
 }

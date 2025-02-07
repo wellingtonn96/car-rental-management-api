@@ -1,13 +1,19 @@
 import { Request, Response } from 'express';
 
-import { GetCategoriesUseCase } from './get-specifications.use-case';
+import { GetSpecificationsUseCase } from './get-specifications.use-case';
+import { container } from 'tsyringe';
 
-export class GetCategoriesController {
-  constructor(private getCategoriesUseCase: GetCategoriesUseCase) {}
-  public handle(request: Request, response: Response): Response {
+export class GetSpecificationsController {
+  public async handler(
+    request: Request,
+    response: Response
+  ): Promise<Response> {
     try {
-      const categoriesList = this.getCategoriesUseCase.execute();
-      return response.status(200).json(categoriesList);
+      const getSpecificationsUseCase = container.resolve(
+        GetSpecificationsUseCase
+      );
+      const specificationsList = await getSpecificationsUseCase.execute();
+      return response.status(200).json(specificationsList);
     } catch (error: any) {
       return response.status(400).json({ error: error.message });
     }
