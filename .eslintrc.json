@@ -59,8 +59,8 @@
     ],
     "import/no-extraneous-dependencies": [
       "error",
-      { "devDependencies": ["**/*.spec.js", "jest.config.ts"] }
-      { "tsyringe": "off"}
+      { "devDependencies": ["**/*.spec.js", "jest.config.ts"] },
+      { "tsyringe": "off" }
     ],
     "prettier/prettier": "error"
   },
