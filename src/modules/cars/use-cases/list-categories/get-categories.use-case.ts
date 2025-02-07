@@ -1,8 +1,13 @@
-import { ISpecificationRepository } from '../../repositories/implementations/ISpecificationRepository';
+import { inject, injectable } from 'tsyringe';
+import { ICategoriesRepository } from '../../repositories/implementations/ICategoriesRepository';
 
-export class GetSpecificationsUseCase {
-  constructor(private specificationsRepository: ISpecificationRepository) {}
-  public execute() {
-    return this.specificationsRepository.list();
+@injectable()
+export class GetCategoriesUseCase {
+  constructor(
+    @inject('CategoriesRepository')
+    private categoriesRepository: ICategoriesRepository
+  ) {}
+  public async execute() {
+    return this.categoriesRepository.list();
   }
 }
