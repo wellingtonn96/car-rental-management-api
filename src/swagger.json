@@ -1,16 +1,14 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "Rentalx Documentation",
-    "description": "This is an API Rent",
-    "version": "1.0.0",
-    "contact": {
-      "email": "dani@rocketseat.com.br"
-    }
+    "title": "Rentalx API",
+    "description": "API for managing car rental categories and specifications.",
+    "version": "1.0.0"
   },
   "paths": {
     "/categories": {
       "get": {
+        "tags": ["Category"],
         "summary": "List all categories",
         "responses": {
           "200": {
@@ -29,6 +27,7 @@
         }
       },
       "post": {
+        "tags": ["Category"],
         "summary": "Create a category",
         "requestBody": {
           "required": true,
@@ -49,6 +48,7 @@
     },
     "/categories/import": {
       "post": {
+        "tags": ["Category"],
         "summary": "Import categories from a file",
         "requestBody": {
           "required": true,
@@ -75,6 +75,7 @@
     },
     "/specifications": {
       "get": {
+        "tags": ["Specification"],
         "summary": "List all specifications",
         "responses": {
           "200": {
@@ -93,6 +94,7 @@
         }
       },
       "post": {
+        "tags": ["Specification"],
         "summary": "Create a specification",
         "requestBody": {
           "required": true,
