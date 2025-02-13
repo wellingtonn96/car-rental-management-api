@@ -4,7 +4,7 @@ import {
   ICreateSpecificationDTO,
   ISpecificationRepository
 } from './implementations/ISpecificationRepository';
-import { Specification } from '../entities/specification.model';
+import { Specification } from '../entities/specification.entity';
 import { AppDataSource } from '../../../database/data-source';
 
 export class SpecificationRepository implements ISpecificationRepository {

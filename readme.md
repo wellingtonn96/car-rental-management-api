@@ -1,11 +1,12 @@
-# AULA 007
+# AULA 008
 
-Chapter III
+## Chapter III - Continuando a aplicação
 
-- Alterando o Repositório de categoria
-- Refatorando o caso de uso de categoria
-- Entendendo as alterações
-- Conhecendo TSyringe
-- Refatorando as especificações
-- Criando migration de especificação
-- Continuação da documentação
+- Criando migration de usuário
+- Criando repositório de usuário
+- Criando controller de usuário
+- Alterar tabela de usuário
+- Criptografrar senha
+- Entendendo autenticação com JWT
+- Criando token do usuário
+- Autenticação nas rotas

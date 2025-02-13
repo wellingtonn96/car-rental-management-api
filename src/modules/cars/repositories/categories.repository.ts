@@ -4,7 +4,7 @@ import {
   ICategoriesRepository,
   ICreateCategoryDTO
 } from './implementations/ICategoriesRepository';
-import { Category } from '../entities/categories.model';
+import { Category } from '../entities/categories.entity';
 import { AppDataSource } from '../../../database/data-source';
 
 export class CategoriesRepository implements ICategoriesRepository {

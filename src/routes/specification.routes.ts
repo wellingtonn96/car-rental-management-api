@@ -8,13 +8,9 @@ const getSpecificationsController = new GetSpecificationsController();
 const specificationRoutes = Router();
 
 // @ts-ignore
-specificationRoutes.post('/', (request, response) =>
-  createSpecificationController.handler(request, response)
-);
+specificationRoutes.post('/', createSpecificationController.handler);
 
 // @ts-ignore
-specificationRoutes.get('/', (request, response) =>
-  getSpecificationsController.handler(request, response)
-);
+specificationRoutes.get('/', getSpecificationsController.handler);
 
 export { specificationRoutes };
