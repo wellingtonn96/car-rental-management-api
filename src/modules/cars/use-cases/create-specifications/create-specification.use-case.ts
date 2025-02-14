@@ -3,6 +3,7 @@ import {
   ICreateSpecificationDTO,
   ISpecificationRepository
 } from '../../repositories/implementations/ISpecificationRepository';
+import { AppError } from '../../../errors/app-error';
 
 @injectable()
 export class CreateSpecificationUseCase {
@@ -16,7 +17,7 @@ export class CreateSpecificationUseCase {
       name
     );
     if (existsSpecification) {
-      throw new Error('This specification already exists!');
+      throw new AppError('This specification already exists!');
     }
     this.specificationRepository.create({ description, name });
   }
