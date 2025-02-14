@@ -17,8 +17,11 @@ export class User {
   @Column({ name: 'password' })
   password: string;
 
-  @Column({ name: 'email' })
+  @Column({ name: 'email', unique: true })
   email: string;
+
+  @Column({ name: 'avatar' })
+  avatar: string;
 
   @Column({ name: 'driver_license' })
   driverLicense: string;
