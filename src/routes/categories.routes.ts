@@ -5,10 +5,7 @@ import { CreateCategoryController } from '../modules/cars/use-cases/create-categ
 import { ImportCategoriesController } from '../modules/cars/use-cases/import-categories/import-categories.controller';
 import { GetCategoriesController } from '../modules/cars/use-cases/list-categories/get-categories.controller';
 import ensureAuthenticated from '../modules/middlewares/ensure-authenticated';
-
-const upload = multer({
-  dest: './tmp'
-});
+import uploadConfig from '../config/upload';
 
 const categoriesRoutes = Router();
 
@@ -18,15 +15,19 @@ const importCategoryController = new ImportCategoriesController();
 
 categoriesRoutes.use(ensureAuthenticated);
 
+const uploadCsvCategories = multer(uploadConfig.upload('./tmp/csv_categories'));
+
 // @ts-ignore
 categoriesRoutes.post('/', createCategoryController.handle);
 
 // @ts-ignore
 categoriesRoutes.get('/', getCategoryController.handle);
 
-// @ts-ignore
-categoriesRoutes.post('/import', upload.single('file'), (request, response) =>
-  importCategoryController.handler(request, response)
+categoriesRoutes.post(
+  '/import',
+  uploadCsvCategories.single('file'),
+  // @ts-ignore
+  importCategoryController.handler
 );
 
 export { categoriesRoutes };
