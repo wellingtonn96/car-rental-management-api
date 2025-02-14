@@ -1,11 +1,12 @@
 import 'reflect-metadata';
-import express from 'express';
+import express, { NextFunction, Request, Response } from 'express';
 import { router } from './routes';
 import swaggerUI from 'swagger-ui-express';
 import swaggerJSON from './swagger.json';
 
 import './modules/shared/container';
 import { AppDataSource } from './database/data-source';
+import { AppError } from './modules/errors/app-error';
 
 const app = express();
 
@@ -13,6 +14,24 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerJSON));
 app.use(router);
+app.use(
+  (
+    err: Error,
+    request: Request,
+    response: Response,
+    _next: NextFunction
+  ): void => {
+    if (err instanceof AppError) {
+      response.status(err.statusCode).json({ message: err.message });
+      return;
+    }
+
+    response.status(500).json({
+      status: 'error',
+      message: `Internal server error - ${err.message}`
+    });
+  }
+);
 
 const port = 3000;
 

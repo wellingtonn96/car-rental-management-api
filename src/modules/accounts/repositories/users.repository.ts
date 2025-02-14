@@ -1,4 +1,4 @@
-import { Repository } from 'typeorm';
+import { Repository, UpdateResult } from 'typeorm';
 import { ICreateUserDto, IUserRepository } from './IUserRepository';
 import { User } from '../entities/user.entity';
 import { AppDataSource } from '../../../database/data-source';
@@ -35,6 +35,10 @@ class UsersRepository implements IUserRepository {
 
   async getUserById(id: string): Promise<User | null> {
     return this.repository.findOneBy({ id });
+  }
+
+  async updateAvatarById(id: string, newAvatarUrl: string): Promise<void> {
+    await this.repository.update({ id }, { avatar: newAvatarUrl });
   }
 }
 

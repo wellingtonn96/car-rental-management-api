@@ -3,6 +3,7 @@ import fs, { createReadStream } from 'fs';
 
 import { CreateCategoryUseCase } from '../create-categories/create-categories.use-case';
 import { inject, injectable } from 'tsyringe';
+import { AppError } from '../../../errors/app-error';
 
 @injectable()
 class ImportCategoriesUseCase {
@@ -13,7 +14,7 @@ class ImportCategoriesUseCase {
 
   private async loadCategories(file: Express.Multer.File) {
     if (!file.mimetype.includes('csv')) {
-      throw new Error('Invalid file type. Please upload a valid CSV file.');
+      throw new AppError('Invalid file type. Please upload a valid CSV file.');
     }
     const stream = createReadStream(file.path);
     const parseFile = csvParse({

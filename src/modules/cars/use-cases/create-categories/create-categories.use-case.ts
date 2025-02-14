@@ -3,6 +3,7 @@ import {
   ICategoriesRepository,
   ICreateCategoryDTO
 } from '../../repositories/implementations/ICategoriesRepository';
+import { AppError } from '../../../errors/app-error';
 
 @injectable()
 export class CreateCategoryUseCase {
@@ -14,7 +15,7 @@ export class CreateCategoryUseCase {
     const existsCategory = await this.categoriesRepository.findByName(name);
 
     if (existsCategory) {
-      throw new Error('category already exists!');
+      throw new AppError('category already exists!');
     }
 
     return this.categoriesRepository.create({ name, description });
