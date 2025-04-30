@@ -1,4 +1,5 @@
 import { UpdateResult } from 'typeorm';
+
 import { User } from '../entities/user.entity';
 
 interface ICreateUserDto {

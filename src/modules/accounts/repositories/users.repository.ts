@@ -1,8 +1,9 @@
-import { Repository, UpdateResult } from 'typeorm';
-import { ICreateUserDto, IUserRepository } from './IUserRepository';
-import { User } from '../entities/user.entity';
-import { AppDataSource } from '../../../database/data-source';
 import bcrypt from 'bcrypt';
+import { Repository, UpdateResult } from 'typeorm';
+
+import { AppDataSource } from '../../../database/data-source';
+import { User } from '../entities/user.entity';
+import { ICreateUserDto, IUserRepository } from './IUserRepository';
 
 class UsersRepository implements IUserRepository {
   private repository: Repository<User>;

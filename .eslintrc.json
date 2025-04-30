@@ -59,14 +59,23 @@
     ],
     "import/no-extraneous-dependencies": [
       "error",
-      { "devDependencies": ["**/*.spec.js", "jest.config.ts"] },
-      { "tsyringe": "off" }
+      {
+        "devDependencies": [
+          "**/*.spec.js",
+          "**/*.spec.ts",
+          "**/*.test.ts",
+          "**/*.test.js",
+          "jest.config.ts"
+        ]
+      }
     ],
     "prettier/prettier": "error"
   },
   "settings": {
     "import/resolver": {
-      "typescript": {}
+      "typescript": {
+        "project": "./tsconfig.json"
+      }
     }
   }
 }

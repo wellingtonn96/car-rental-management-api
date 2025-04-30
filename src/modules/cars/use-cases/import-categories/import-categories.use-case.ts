@@ -1,9 +1,10 @@
 import { parse as csvParse } from 'csv-parse';
 import fs, { createReadStream } from 'fs';
+import { inject, injectable } from 'tsyringe';
+
+import { AppError } from '@modules/errors/app-error';
 
 import { CreateCategoryUseCase } from '../create-categories/create-categories.use-case';
-import { inject, injectable } from 'tsyringe';
-import { AppError } from '../../../errors/app-error';
 
 @injectable()
 class ImportCategoriesUseCase {

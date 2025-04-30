@@ -1,9 +1,10 @@
 import { inject, injectable } from 'tsyringe';
+
 import {
   ICreateSpecificationDTO,
   ISpecificationRepository
-} from '../../repositories/implementations/ISpecificationRepository';
-import { AppError } from '../../../errors/app-error';
+} from '@modules/cars/repositories/implementations/ISpecificationRepository';
+import { AppError } from '@modules/errors/app-error';
 
 @injectable()
 export class CreateSpecificationUseCase {
@@ -12,7 +13,10 @@ export class CreateSpecificationUseCase {
     private specificationRepository: ISpecificationRepository
   ) {}
 
-  public async execute({ description, name }: ICreateSpecificationDTO) {
+  public async execute({
+    description,
+    name
+  }: ICreateSpecificationDTO): Promise<void> {
     const existsSpecification = await this.specificationRepository.findByName(
       name
     );

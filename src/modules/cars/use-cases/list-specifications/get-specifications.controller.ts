@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
+import { container } from 'tsyringe';
 
 import { GetSpecificationsUseCase } from './get-specifications.use-case';
-import { container } from 'tsyringe';
 
 export class GetSpecificationsController {
   public async handler(

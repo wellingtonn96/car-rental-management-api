@@ -17,7 +17,7 @@ if (!migrationName) {
     console.log('✅ Data Source has been initialized!');
 
     // Comando para gerar a migration
-    const exec = require('child_process').exec;
+    const { exec } = require('child_process');
     const migrationCommand = `npx typeorm migration:create src/database/migrations/${migrationName}`;
 
     console.log('🚀 Criando migration:', migrationName);
