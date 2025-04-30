@@ -6,10 +6,80 @@
     "version": "1.0.0"
   },
   "paths": {
+    "/users": {
+      "post": {
+        "tags": ["User"],
+        "summary": "Create a user",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" },
+                  "password": { "type": "string" },
+                  "driverLicense": { "type": "string" },
+                  "email": { "type": "string" }
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "User created successfully"
+            }
+          }
+        }
+      }
+    },
+    "/users/auth": {
+      "post": {
+        "tags": ["User"],
+        "summary": "Authenticate a user",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": { "type": "string" },
+                  "password": { "type": "string" }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Authentication successful",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "accessToken": { "type": "string" }
+                    }
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Invalid credentials"
+            }
+          }
+        }
+      }
+    },
     "/categories": {
       "get": {
         "tags": ["Category"],
         "summary": "List all categories",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -29,6 +99,11 @@
       "post": {
         "tags": ["Category"],
         "summary": "Create a category",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -37,11 +112,11 @@
                 "$ref": "#/components/schemas/Category"
               }
             }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Category created successfully"
+          },
+          "responses": {
+            "201": {
+              "description": "Category created successfully"
+            }
           }
         }
       }
@@ -50,6 +125,11 @@
       "post": {
         "tags": ["Category"],
         "summary": "Import categories from a file",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -64,11 +144,11 @@
                 }
               }
             }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "File imported successfully"
+          },
+          "responses": {
+            "200": {
+              "description": "File imported successfully"
+            }
           }
         }
       }
@@ -77,6 +157,11 @@
       "get": {
         "tags": ["Specification"],
         "summary": "List all specifications",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -96,6 +181,11 @@
       "post": {
         "tags": ["Specification"],
         "summary": "Create a specification",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -104,11 +194,11 @@
                 "$ref": "#/components/schemas/Specification"
               }
             }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Specification created successfully"
+          },
+          "responses": {
+            "201": {
+              "description": "Specification created successfully"
+            }
           }
         }
       }
@@ -137,6 +227,13 @@
             "type": "string"
           }
         }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
       }
     }
   }
