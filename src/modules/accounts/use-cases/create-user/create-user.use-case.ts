@@ -1,9 +1,11 @@
 import { inject, injectable } from 'tsyringe';
+
+import { AppError } from '@modules/errors/app-error';
+
 import {
   ICreateUserDto,
   IUserRepository
 } from '../../repositories/IUserRepository';
-import { AppError } from '../../../errors/app-error';
 
 @injectable()
 class CreateUserUseCase {

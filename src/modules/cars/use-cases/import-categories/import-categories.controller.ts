@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
+import { container } from 'tsyringe';
 
 import { ImportCategoriesUseCase } from './import-categories.use-case';
-import { container } from 'tsyringe';
 
 class ImportCategoriesController {
   public async handler(request: Request, response: Response) {

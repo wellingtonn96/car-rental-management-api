@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-
 import { container } from 'tsyringe';
+
 import { CreateUserUseCase } from './create-user.use-case';
 
 class CreateUserController {

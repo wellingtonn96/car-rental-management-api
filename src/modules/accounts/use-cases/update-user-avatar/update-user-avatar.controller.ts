@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
+
 import { UpdateUserAvatarUseCase } from './update-user-avatar.use-case';
 
 class UpdateUserAvatarController {

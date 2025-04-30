@@ -1,9 +1,10 @@
 import { inject, injectable } from 'tsyringe';
+
 import {
   ICategoriesRepository,
   ICreateCategoryDTO
-} from '../../repositories/implementations/ICategoriesRepository';
-import { AppError } from '../../../errors/app-error';
+} from '@modules/cars/repositories/implementations/ICategoriesRepository';
+import { AppError } from '@modules/errors/app-error';
 
 @injectable()
 export class CreateCategoryUseCase {
@@ -11,7 +12,11 @@ export class CreateCategoryUseCase {
     @inject('CategoriesRepository')
     private categoriesRepository: ICategoriesRepository
   ) {}
-  public async execute({ description, name }: ICreateCategoryDTO) {
+
+  public async execute({
+    description,
+    name
+  }: ICreateCategoryDTO): Promise<void> {
     const existsCategory = await this.categoriesRepository.findByName(name);
 
     if (existsCategory) {
