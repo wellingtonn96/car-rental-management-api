@@ -1,6 +1,9 @@
+import dotenv from 'dotenv';
 import { v4 as uuidV4 } from 'uuid';
 
 import { AppDataSourceRunScripts } from '../scripts-database/data-sourse-scripts';
+
+dotenv.config();
 
 (async () => {
   try {

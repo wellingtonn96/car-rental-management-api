@@ -1,5 +1,7 @@
+import dotenv from 'dotenv';
 import { AppDataSourceRunScripts } from './data-sourse-scripts';
 
+dotenv.config();
 require('reflect-metadata');
 
 const migrationName = process.argv[2];

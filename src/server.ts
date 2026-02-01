@@ -1,13 +1,16 @@
-import 'reflect-metadata';
+import dotenv from 'dotenv';
 import express, { NextFunction, Request, Response } from 'express';
+import 'reflect-metadata';
 import swaggerUI from 'swagger-ui-express';
 
+import { AppDataSource } from './database/data-source';
+import { AppError } from './modules/errors/app-error';
 import { router } from './routes';
 import swaggerJSON from './swagger.json';
 
 import './modules/shared/container';
-import { AppDataSource } from './database/data-source';
-import { AppError } from './modules/errors/app-error';
+
+dotenv.config();
 
 const app = express();
 

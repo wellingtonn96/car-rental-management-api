@@ -10,7 +10,7 @@
     "migration:generate": "ts-node-dev src/database/scripts-database/create-migrations.ts",
     "migration:run": "ts-node-dev src/database/scripts-database/run-migrations.ts",
     "migration:revert": "ts-node-dev src/database/scripts-database/revert-migrations.ts",
-    "test": "jest",
+    "test": "jest --watchAll",
     "lint": "eslint \"src/**/*.{ts,js}\"",
     "lint:fix": "eslint \"src/**/*.{ts,js}\" --fix"
   },

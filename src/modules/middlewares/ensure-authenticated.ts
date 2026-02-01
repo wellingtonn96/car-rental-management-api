@@ -22,10 +22,7 @@ export default function ensureAuthenticated(
   const token = authHeader.split(' ')[1];
 
   try {
-    const { sub } = verify(
-      token,
-      'c3324856b2b582d2cd445d9c54ed4197'
-    ) as IPayload;
+    const { sub } = verify(token, String(process.env.JWT_SECRET)) as IPayload;
 
     const userRepository = new UsersRepository();
 

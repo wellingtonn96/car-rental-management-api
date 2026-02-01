@@ -5,11 +5,11 @@ services:
     container_name: database_ignite
     restart: always
     ports:
-      - 5432:5432
+      - ${DB_PORT:-5432}:5432
     environment:
-      - POSTGRES_USER=docker
-      - POSTGRES_PASSWORD=database_ignite
-      - POSTGRES_DB=rentalx
+      - POSTGRES_USER=${DB_USER:-postgres}
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-postgres}
+      - POSTGRES_DB=${DB_NAME:-car_rental}
     volumes:
       - pgdata:/data/postgres
     network_mode: host
