@@ -1,8 +1,11 @@
+import exec from 'child_process';
 import dotenv from 'dotenv';
+
 import { AppDataSourceRunScripts } from './data-sourse-scripts';
 
+import 'reflect-metadata';
+
 dotenv.config();
-require('reflect-metadata');
 
 const migrationName = process.argv[2];
 
@@ -20,7 +23,7 @@ if (!migrationName) {
 
     // Comando para gerar a migration
     const { exec } = require('child_process');
-    const migrationCommand = `npx typeorm migration:create src/database/migrations/${migrationName}`;
+    const migrationCommand = `npx typeorm migration:create src/modules/shared/database/migrations/${migrationName}`;
 
     console.log('🚀 Criando migration:', migrationName);
     console.log('Executando:', migrationCommand);

@@ -1,8 +1,9 @@
 import dotenv from 'dotenv';
+
 import { AppDataSourceRunScripts } from './data-sourse-scripts';
+import 'reflect-metadata';
 
 dotenv.config();
-require('reflect-metadata');
 
 // Run migrations
 // Reverte a última migration

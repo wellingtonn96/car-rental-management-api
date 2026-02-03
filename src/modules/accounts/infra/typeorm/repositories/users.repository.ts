@@ -1,8 +1,11 @@
 import { Repository } from 'typeorm';
 
-import { AppDataSource } from '../../../database/data-source';
+import { AppDataSource } from '../../../../../shared/database/data-source';
+import {
+  ICreateUserDto,
+  IUserRepository
+} from '../../../repositories/IUserRepository';
 import { User } from '../entities/user.entity';
-import { ICreateUserDto, IUserRepository } from './IUserRepository';
 
 class UsersRepository implements IUserRepository {
   private repository: Repository<User>;

@@ -4,12 +4,12 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --poll --ignore-watch node_modules --respawn src/modules/shared/infra/http/server.ts",
+    "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --poll --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
      "build": "tsc --noEmit && babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli",
-    "migration:generate": "ts-node-dev src/modules/shared/database/scripts-database/create-migrations.ts",
-    "migration:run": "ts-node-dev src/modules/shared/database/scripts-database/run-migrations.ts",
-    "migration:revert": "ts-node-dev src/modules/shared/database/scripts-database/revert-migrations.ts",
+    "migration:generate": "ts-node-dev src/shared/database/scripts-database/create-migrations.ts",
+    "migration:run": "ts-node-dev src/shared/database/scripts-database/run-migrations.ts",
+    "migration:revert": "ts-node-dev src/shared/database/scripts-database/revert-migrations.ts",
     "test": "jest --watchAll",
     "lint": "eslint \"src/**/*.{ts,js}\"",
     "lint:fix": "eslint \"src/**/*.{ts,js}\" --fix"

@@ -4,7 +4,7 @@ import {
   ICreateSpecificationDTO,
   ISpecificationRepository
 } from '@modules/cars/repositories/implementations/ISpecificationRepository';
-import { AppError } from '@modules/errors/app-error';
+import { AppError } from '@shared/errors/app-error';
 
 @injectable()
 export class CreateSpecificationUseCase {

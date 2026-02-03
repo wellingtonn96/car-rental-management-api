@@ -1,11 +1,11 @@
 import { container } from 'tsyringe';
 
+import { UsersRepository } from '@modules/accounts/infra/typeorm/repositories/users.repository';
 import { IUserRepository } from '@modules/accounts/repositories/IUserRepository';
-import { UsersRepository } from '@modules/accounts/repositories/users.repository';
-import { CategoriesRepository } from '@modules/cars/repositories/categories.repository';
+import { CategoriesRepository } from '@modules/cars/infra/typeorm/repositories/categories.repository';
+import { SpecificationRepository } from '@modules/cars/infra/typeorm/repositories/specification.repository';
 import { ICategoriesRepository } from '@modules/cars/repositories/implementations/ICategoriesRepository';
 import { ISpecificationRepository } from '@modules/cars/repositories/implementations/ISpecificationRepository';
-import { SpecificationRepository } from '@modules/cars/repositories/specification.repository';
 import { CreateCategoryUseCase } from '@modules/cars/use-cases/create-categories/create-categories.use-case';
 
 // ICategriesRepository

@@ -1,11 +1,12 @@
 import { Repository } from 'typeorm';
 
-import { AppDataSource } from '../../../database/data-source';
-import { Category } from '../entities/categories.entity';
 import {
   ICategoriesRepository,
   ICreateCategoryDTO
-} from './implementations/ICategoriesRepository';
+} from '@modules/cars/repositories/implementations/ICategoriesRepository';
+import { AppDataSource } from '@shared/database/data-source';
+
+import { Category } from '../entities/categories.entity';
 
 export class CategoriesRepository implements ICategoriesRepository {
   private repository: Repository<Category>;

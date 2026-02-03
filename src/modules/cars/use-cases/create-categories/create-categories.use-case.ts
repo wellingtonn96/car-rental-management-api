@@ -4,7 +4,7 @@ import {
   ICategoriesRepository,
   ICreateCategoryDTO
 } from '@modules/cars/repositories/implementations/ICategoriesRepository';
-import { AppError } from '@modules/errors/app-error';
+import { AppError } from '@shared/errors/app-error';
 
 @injectable()
 export class CreateCategoryUseCase {

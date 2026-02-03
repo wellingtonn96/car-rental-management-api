@@ -1,6 +1,6 @@
 import { v4 as uuidV4 } from 'uuid';
 
-import { Category } from '../../entities/categories.entity';
+import { Category } from '../../infra/typeorm/entities/categories.entity';
 import {
   ICategoriesRepository,
   ICreateCategoryDTO
