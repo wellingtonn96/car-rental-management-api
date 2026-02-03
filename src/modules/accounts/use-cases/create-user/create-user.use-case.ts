@@ -1,3 +1,4 @@
+import bcrypt from 'bcrypt';
 import { inject, injectable } from 'tsyringe';
 
 import { AppError } from '@modules/errors/app-error';
@@ -18,7 +19,11 @@ class CreateUserUseCase {
     if (userExists) {
       throw new AppError('User already exists!');
     }
-    const user = await this.userRepository.create(data);
+    const hashedPassword = await bcrypt.hash(data.password, 10);
+    const user = await this.userRepository.create({
+      ...data,
+      password: hashedPassword
+    });
 
     return user;
   }

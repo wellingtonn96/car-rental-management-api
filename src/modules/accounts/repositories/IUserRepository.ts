@@ -11,8 +11,8 @@ interface ICreateUserDto {
 
 interface IUserRepository {
   create(data: ICreateUserDto | User): Promise<void>;
-  getUserByEmail(email: string): Promise<User | null>;
-  getUserById(id: string): Promise<User | null>;
+  getUserByEmail(email: string): Promise<User | undefined>;
+  getUserById(id: string): Promise<User | undefined>;
   updateAvatarById(id: string, newAvatarUrl: string): Promise<void>;
 }
 

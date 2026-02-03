@@ -5,48 +5,36 @@ import { AppError } from '@modules/errors/app-error';
 import { CreateCategoryUseCase } from './create-categories.use-case';
 
 let createCategoryUseCase: CreateCategoryUseCase;
-let categoriesRepositoryInMemory: CategoryRepositoryInMemory;
+let createRepositoryInMomory: CategoryRepositoryInMemory;
 
 describe('Create Category use Case', () => {
   beforeEach(() => {
-    categoriesRepositoryInMemory = new CategoryRepositoryInMemory();
-    createCategoryUseCase = new CreateCategoryUseCase(
-      categoriesRepositoryInMemory
-    );
+    createRepositoryInMomory = new CategoryRepositoryInMemory();
+    createCategoryUseCase = new CreateCategoryUseCase(createRepositoryInMomory);
   });
 
-  it('should be able to create a new category', async () => {
+  it('shoul be able to create a new category', async () => {
     const category = {
-      name: 'Category Test',
-      description: 'Category Test'
+      description: 'categoria nova',
+      name: 'name-category-01'
     };
-    await createCategoryUseCase.execute({
-      name: category.name,
-      description: category.description
-    });
+    await createCategoryUseCase.execute(category);
 
-    const categoryCreated = await categoriesRepositoryInMemory.findByName(
+    const getCategoryCreated = await createRepositoryInMomory.findByName(
       category.name
     );
-
-    expect(categoryCreated).toHaveProperty('name');
+    expect(getCategoryCreated).toHaveProperty('id');
   });
 
-  it('should not be able to create a category with name already exists', async () => {
-    expect(async () => {
-      const category = {
-        name: 'Category Test',
-        description: 'Category Test'
-      };
-      await createCategoryUseCase.execute({
-        name: category.name,
-        description: category.description
-      });
+  it('should not be abel to create a new category with name exists', async () => {
+    const category = {
+      description: 'categoria nova',
+      name: 'name-category-01'
+    };
 
-      await createCategoryUseCase.execute({
-        name: category.name,
-        description: category.description
-      });
+    expect(async () => {
+      await createCategoryUseCase.execute(category);
+      await createCategoryUseCase.execute(category);
     }).rejects.toBeInstanceOf(AppError);
   });
 });

@@ -1,3 +1,5 @@
+import { v4 as uuidV4 } from 'uuid';
+
 import { Category } from '../../entities/categories.entity';
 import {
   ICategoriesRepository,
@@ -8,7 +10,7 @@ export class CategoryRepositoryInMemory implements ICategoriesRepository {
   categories: Category[] = [];
 
   async create({ name, description }: ICreateCategoryDTO) {
-    const category = { name, description };
+    const category = { id: uuidV4(), name, description };
     this.categories.push(category);
     return category;
   }
