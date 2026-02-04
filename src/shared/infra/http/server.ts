@@ -2,8 +2,9 @@ import dotenv from 'dotenv';
 import express, { NextFunction, Request, Response } from 'express';
 import 'reflect-metadata';
 import swaggerUI from 'swagger-ui-express';
+import path from 'path';
+import fs from 'fs';
 
-import swaggerJSON from '../../../swagger.json';
 import { AppError } from '../../errors/app-error';
 import { router } from './routes';
 
@@ -11,6 +12,13 @@ import '../../container';
 import { AppDataSource } from '@shared/database/data-source';
 
 dotenv.config();
+
+// Carregar swagger.json de forma compatível com dev e produção
+const isProduction = process.env.NODE_ENV === 'production';
+const swaggerPath = isProduction
+  ? path.join(process.cwd(), 'dist/swagger.json')
+  : path.join(process.cwd(), 'src/swagger.json');
+const swaggerJSON = JSON.parse(fs.readFileSync(swaggerPath, 'utf8'));
 
 const app = express();
 
