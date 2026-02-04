@@ -20,8 +20,8 @@ if (!migrationName) {
     console.log('🔄 Conectando ao banco de dados...');
 
     // Usar o TypeORM CLI para gerar a migration
-    // O TypeORM precisa que o data-source seja exportado como dataSource
-    const command = `npx ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:generate -d src/shared/database/data-source-cli.ts src/shared/database/migrations/${migrationName}`;
+    // O TypeORM precisa que o data-source seja exportado como DataSource
+    const command = `npx ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:generate -d src/shared/database/data-source.ts src/shared/database/migrations/${migrationName}`;
 
     console.log('🚀 Gerando migration baseada nas entidades...');
     console.log(`📝 Nome da migration: ${migrationName}`);
