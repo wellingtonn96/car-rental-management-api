@@ -1,9 +1,6 @@
-import exec from 'child_process';
 import dotenv from 'dotenv';
-
-import { AppDataSourceRunScripts } from './data-sourse-scripts';
-
-import 'reflect-metadata';
+import fs from 'fs';
+import path from 'path';
 
 dotenv.config();
 
@@ -11,36 +8,50 @@ const migrationName = process.argv[2];
 
 if (!migrationName) {
   console.error('❌ Erro: Você deve fornecer um nome para a migration!');
-  console.error('Uso: node create-migration.js NomeDaMigration');
+  console.error('Uso: npm run migration:create NomeDaMigration');
   process.exit(1);
 }
 
-// Criar a migration
+// Criar a migration manualmente (arquivo vazio)
 (async () => {
   try {
-    await AppDataSourceRunScripts.initialize();
-    console.log('✅ Data Source has been initialized!');
+    const timestamp = Date.now();
+    const migrationFileName = `${timestamp}-${migrationName}`;
+    const migrationPath = `src/shared/database/migrations/${migrationFileName}.ts`;
 
-    // Comando para gerar a migration
-    const { exec } = require('child_process');
-    const migrationCommand = `npx typeorm migration:create src/modules/shared/database/migrations/${migrationName}`;
+    const className = migrationName
+      .split(/[-_]/)
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join('');
 
-    console.log('🚀 Criando migration:', migrationName);
-    console.log('Executando:', migrationCommand);
+    const migrationTemplate = `import { MigrationInterface, QueryRunner } from 'typeorm';
 
-    exec(migrationCommand, (error: any, stdout: any, stderr: any) => {
-      if (error) {
-        console.error('❌ Erro ao criar migration:', error.message);
-        return;
-      }
-      if (stderr) {
-        console.error('⚠️ Alerta:', stderr);
-      }
-      console.log('✅ Migration criada com sucesso:', stdout);
-    });
+export class ${className}${timestamp} implements MigrationInterface {
+  public async up(queryRunner: QueryRunner): Promise<void> {
+    // Adicione suas alterações aqui
+  }
+
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    // Adicione a reversão das alterações aqui
+  }
+}
+`;
+
+    const fullPath = path.join(process.cwd(), migrationPath);
+    const dir = path.dirname(fullPath);
+
+    // Criar diretório se não existir
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
+
+    // Criar arquivo de migration
+    fs.writeFileSync(fullPath, migrationTemplate, 'utf8');
+
+    console.log('✅ Migration criada com sucesso!');
+    console.log(`📁 Arquivo: ${migrationPath}`);
   } catch (error) {
-    console.error('❌ Error during Data Source initialization:', error);
-  } finally {
-    await AppDataSourceRunScripts.destroy();
+    console.error('❌ Erro ao criar migration:', error);
+    process.exit(1);
   }
 })();
