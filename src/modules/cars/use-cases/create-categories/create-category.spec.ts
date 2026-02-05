@@ -1,4 +1,5 @@
 import 'reflect-metadata';
+
 import { CategoryRepositoryInMemory } from '@modules/cars/repositories/in-memory/category-repository-in-memory';
 import { AppError } from '@shared/errors/app-error';
 

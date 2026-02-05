@@ -3,7 +3,7 @@ import { Repository } from 'typeorm';
 import {
   ICategoriesRepository,
   ICreateCategoryDTO
-} from '@modules/cars/repositories/implementations/ICategoriesRepository';
+} from '@modules/cars/repositories/implementations/categories-repository.implementations';
 import { AppDataSource } from '@shared/database/data-source';
 
 import { Category } from '../entities/categories.entity';

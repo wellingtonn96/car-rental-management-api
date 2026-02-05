@@ -1,9 +1,9 @@
 import dotenv from 'dotenv';
 import express, { NextFunction, Request, Response } from 'express';
 import 'reflect-metadata';
-import swaggerUI from 'swagger-ui-express';
-import path from 'path';
 import fs from 'fs';
+import path from 'path';
+import swaggerUI from 'swagger-ui-express';
 
 import { AppError } from '../../errors/app-error';
 import { router } from './routes';

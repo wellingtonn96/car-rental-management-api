@@ -3,7 +3,7 @@ import { inject, injectable } from 'tsyringe';
 import {
   ICategoriesRepository,
   ICreateCategoryDTO
-} from '@modules/cars/repositories/implementations/ICategoriesRepository';
+} from '@modules/cars/repositories/implementations/categories-repository.implementations';
 import { AppError } from '@shared/errors/app-error';
 
 @injectable()
