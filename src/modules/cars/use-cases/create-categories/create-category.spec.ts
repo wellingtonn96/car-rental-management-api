@@ -1,6 +1,7 @@
 import 'reflect-metadata';
+
 import { CategoryRepositoryInMemory } from '@modules/cars/repositories/in-memory/category-repository-in-memory';
-import { AppError } from '@modules/errors/app-error';
+import { AppError } from '@shared/errors/app-error';
 
 import { CreateCategoryUseCase } from './create-categories.use-case';
 

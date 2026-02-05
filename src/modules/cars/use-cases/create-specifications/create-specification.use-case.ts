@@ -3,8 +3,8 @@ import { inject, injectable } from 'tsyringe';
 import {
   ICreateSpecificationDTO,
   ISpecificationRepository
-} from '@modules/cars/repositories/implementations/ISpecificationRepository';
-import { AppError } from '@modules/errors/app-error';
+} from '@modules/cars/repositories/implementations/specification-repository.implementations';
+import { AppError } from '@shared/errors/app-error';
 
 @injectable()
 export class CreateSpecificationUseCase {

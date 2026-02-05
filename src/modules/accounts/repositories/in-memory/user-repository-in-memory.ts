@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 
-import { User } from '@modules/accounts/entities/user.entity';
+import { User } from '@modules/accounts/infra/typeorm/entities/user.entity';
 
 import { ICreateUserDto, IUserRepository } from '../IUserRepository';
 
