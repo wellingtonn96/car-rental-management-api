@@ -4,7 +4,7 @@ import { Category } from '../../infra/typeorm/entities/categories.entity';
 import {
   ICategoriesRepository,
   ICreateCategoryDTO
-} from '../implementations/ICategoriesRepository';
+} from '../implementations/categories-repository.implementations';
 
 export class CategoryRepositoryInMemory implements ICategoriesRepository {
   categories: Category[] = [];
