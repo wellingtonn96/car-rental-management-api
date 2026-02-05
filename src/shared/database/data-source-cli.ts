@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import dotenv from 'dotenv';
-import { DataSource as TypeORMDataSource } from 'typeorm';
 import path from 'path';
+import { DataSource as TypeORMDataSource } from 'typeorm';
 
 dotenv.config();
 
